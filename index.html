@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Learning Path Recommender</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo"><i class="fas fa-brain"></i> AI LearnPath</a>
+            <ul class="nav-links">
+                <li><a href="#how-it-works">How it Works</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-section">
+        <div class="container">
+            <h1>Unlock Your Potential with Personalized Learning Paths</h1>
+            <p>AI-powered recommendations tailored to your goals, skills, and career aspirations.</p>
+            <button id="get-started-btn" class="btn-primary">Get Started <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="form-section" class="hidden">
+            <div class="form-container">
+                <h2>Tell Us About Yourself</h2>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 0%;"></div>
+                </div>
+                <form id="user-form" class="multi-step-form">
+                    <!-- Step 1: Personal Info -->
+                    <div class="form-step active" data-step="1">
+                        <h3>Step 1: Personal Information</h3>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" placeholder="e.g., Jane Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="education">Education Level</label>
+                            <select id="education" required>
+                                <option value="">Select your education level</option>
+                                <option value="high-school">High School</option>
+                                <option value="bachelors">Bachelor's Degree</option>
+                                <option value="masters">Master's Degree</option>
+                                <option value="phd">PhD</option>
+                                <option value="self-taught">Self-taught</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-secondary next-step">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+
+                    <!-- Step 2: Skills & Goals -->
+                    <div class="form-step" data-step="2">
+                        <h3>Step 2: Skills & Goals</h3>
+                        <div class="form-group">
+                            <label for="current-skills">Current Skills (comma separated)</label>
+                            <textarea id="current-skills" placeholder="e.g., Python, HTML, Data Analysis" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="career-goal">Target Career/Role</label>
+                            <input type="text" id="career-goal" placeholder="e.g., Data Scientist, Web Developer" required>
+                        </div>
+                        <button type="button" class="btn-secondary prev-step"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="button" class="btn-secondary next-step">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+
+                    <!-- Step 3: Preferences -->
+                    <div class="form-step" data-step="3">
+                        <h3>Step 3: Learning Preferences</h3>
+                        <div class="form-group">
+                            <label for="time-commitment">Weekly Time Commitment (hours)</label>
+                            <input type="number" id="time-commitment" min="1" max="40" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="learning-style">Preferred Learning Style</label>
+                            <select id="learning-style" required>
+                                <option value="">Select your preferred style</option>
+                                <option value="visual">Visual (videos, diagrams)</option>
+                                <option value="reading">Reading (books, articles)</option>
+                                <option value="interactive">Interactive (projects, exercises)</option>
+                                <option value="mixed">Mixed approach</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-secondary prev-step"><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button type="submit" class="btn-primary">Get Recommendations <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="loading" class="hidden">
+            <div class="loader"></div>
+            <p>Analyzing your profile and generating personalized recommendations...</p>
+        </section>
+
+        <section id="recommendations" class="hidden">
+            <div class="results-header">
+                <h2>Your Personalized Learning Path</h2>
+                <button id="start-over" class="btn-secondary"><i class="fas fa-redo"></i> Start Over</button>
+            </div>
+            
+            <div class="user-profile card">
+                <h3><i class="fas fa-user-circle"></i> Profile Summary</h3>
+                <div id="profile-summary"></div>
+            </div>
+            
+            <div class="recommendation-grid">
+                <div class="recommendation-section card">
+                    <h3><i class="fas fa-list-alt"></i> Recommended Courses</h3>
+                    <div id="courses-list" class="recommendation-list"></div>
+                </div>
+                
+                <div class="recommendation-section card">
+                    <h3><i class="fas fa-book-open"></i> Learning Materials</h3>
+                    <div id="materials-list" class="recommendation-list"></div>
+                </div>
+                
+                <div class="recommendation-section card">
+                    <h3><i class="fas fa-chart-line"></i> Skill Development Priorities</h3>
+                    <div id="skills-list" class="recommendation-list"></div>
+                </div>
+            </div>
+            
+            <div class="learning-path card">
+                <h3><i class="fas fa-road"></i> Suggested Learning Path</h3>
+                <div id="learning-path-timeline"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; AI LearnPath. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
