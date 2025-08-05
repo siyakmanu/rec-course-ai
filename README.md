@@ -23,7 +23,7 @@ AI LearnPath is an intelligent web application that generates personalized learn
 ![Input Form Step 2](screenshots/input2.png)
 
 ### Recommendation Output
-
+![Recommendation Output](screenshots/output.png)
 
 ## Technology Stack
 
