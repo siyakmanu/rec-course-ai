@@ -1,171 +1,131 @@
-# Intelligent Course Recommendation Engine
+# AI LearnPath - Personalized Learning Path Recommender
 
-This project is an educational platform that recommends personalized learning paths based on student goals, current skills, and career aspirations. The system uses the Groq API to generate tailored recommendations that adapt to each user's specific needs, with a fallback to local recommendation generation when the backend is unavailable.
-
-## Recent Updates
-
-- **Enhanced UI**: Improved visual consistency with CSS variables
-- **Better Form Navigation**: Implemented multi-step form with progress indicator
-- **Responsive Design**: Optimized for both desktop and mobile devices
-- **Visual Improvements**: Added hover effects and better styling for recommendations
-- **Bug Fixes**: Fixed various issues with form navigation and display
+AI LearnPath is an intelligent web application that generates personalized learning paths based on a user's background, current skills, and career aspirations. The application uses AI to recommend specific courses, learning materials, and skill development priorities tailored to each user's unique profile.
 
 ## Features
 
-- Personalized course recommendations based on user profile
-- Learning material suggestions tailored to career goals
-- Skill development priorities with importance ratings
-- Structured learning path with phases and milestones
-- Responsive design that works on desktop and mobile devices
-- Offline functionality with mock data when backend is unavailable
+- **Personalized Recommendations**: Get customized learning paths based on your specific background, skills, and goals
+- **Multi-step Form**: Easy-to-use interface with a step-by-step form to collect user information
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Dark/Light Theme**: Toggle between dark and light themes based on your preference
+- **How It Works Section**: Clear explanation of the recommendation process
+- **Navigation Controls**: Back and home buttons for easy navigation
 
 ## Screenshots
 
-### Homepage
-![Homepage](screenshots/home.png)
+### Home Page
+![Home Page](screenshots/home.png)
 
-### User Input Form
-![User Input Form](screenshots/inputs.png)
+### Input Form - Step 1
+![Input Form Step 1](screenshots/inputs1.png)
 
-### Recommendations Output
-![Recommendations Output](screenshots/output.png)
+### Input Form - Step 2
+![Input Form Step 2](screenshots/input2.png)
 
-## Setup Instructions
+### Recommendation Output
+![Recommendation Output](screenshots/output.png)
+
+## Technology Stack
+
+### Frontend
+- HTML5
+- CSS3 (with CSS variables for theming)
+- JavaScript (Vanilla JS)
+- Font Awesome (for icons)
+
+### Backend
+- Flask (Python web framework)
+- Groq API (for AI-powered recommendations)
+- Flask-CORS (for handling Cross-Origin Resource Sharing)
+
+## Setup and Installation
 
 ### Prerequisites
+- Python 3.7 or higher
+- Node.js and npm (optional, for development tools)
+- Groq API key
 
-- A modern web browser (Chrome, Firefox, Safari, Edge)
-- Node.js and npm installed on your machine
-- Internet connection to access the Groq API
+### Installation Steps
 
-### Installation
-
-1. Clone or download this repository to your local machine:
-   ```
-   git clone https://github.com/yourusername/intelligent-course-recommendation.git
-   cd intelligent-course-recommendation
-   ```
-2. Navigate to the backend directory and install dependencies:
-   ```
-   cd backend
-   npm install
-   ```
-
-### Running the Application
-
-#### Without Backend (Works Offline)
-1. Simply open `index.html` in your browser or use a local server:
-   ```
-   python -m http.server 3000
-   ```
-   Then visit `http://localhost:3000` in your browser
-2. Fill out the form with your information
-3. Click "Get Recommendations" to generate personalized learning paths
-4. The application will automatically use mock data if the backend is unavailable
-
-#### With Backend (Optional)
-1. Set your Groq API key in `server.js` or as an environment variable:
-   ```javascript
-   // In server.js
-   const GROQ_API_KEY = process.env.GROQ_API_KEY || 'your-api-key-here';
-   ```
-   Or using environment variables:
+1. Clone the repository:
    ```bash
+   git clone https://github.com/yourusername/rec-course-ai.git
+   cd rec-course-ai
+   ```
+
+2. Create a virtual environment and activate it:
+   ```bash
+   python -m venv venv
    # On Windows
-   set GROQ_API_KEY=your-api-key-here
-   
+   venv\Scripts\activate
    # On macOS/Linux
-   export GROQ_API_KEY=your-api-key-here
+   source venv/bin/activate
    ```
-2. Start the backend server:
+
+3. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
    ```
-   cd backend
-   npm start
+
+4. Create a `.env` file in the root directory with your Groq API key:
    ```
-3. In a separate terminal, start a web server in the project root:
+   GROQ_API_KEY=your_groq_api_key_here
    ```
-   python -m http.server 3000
+
+5. Start the backend server:
+   ```bash
+   python backend/app.py
    ```
-   Or use any other static file server
-4. Visit `http://localhost:3000` in your browser
-5. Fill out the form with your information
-6. Click "Get Recommendations" to generate personalized learning paths
 
-### API Key
+6. Open the frontend in your browser:
+   - Navigate to `frontend/index.html` in your file explorer and open it with your browser
+   - Alternatively, you can use a simple HTTP server:
+     ```bash
+     # Using Python's built-in HTTP server
+     cd frontend
+     python -m http.server
+     ```
+     Then open `http://localhost:8000` in your browser
 
-To use the Groq API integration, you need to obtain an API key from [Groq](https://console.groq.com/):
+## Usage
 
-1. Create an account on the Groq platform
-2. Navigate to the API section in your dashboard
-3. Generate a new API key
-4. Set the API key in the backend server as described above
+1. Click on the "Get Started" button on the home page
+2. Fill out the three-step form:
+   - Step 1: Enter your educational background
+   - Step 2: List your current skills
+   - Step 3: Describe your career aspirations
+3. Click "Get Recommendation" to receive your personalized learning path
+4. Use the "Back" button to return to the form or "Start Over" to begin again
 
-## How It Works
+## Project Structure
 
-1. **Initial Interaction**: User clicks the "Get Started" button on the homepage
-2. **Multi-step Form**:
-   - Step 1: User enters personal information (name, education level)
-   - Step 2: User provides skills and career goals
-   - Step 3: User specifies learning preferences (time commitment, learning style)
-3. **Data Processing**:
-   - The application attempts to send this information to the Groq API via the backend server
-   - If the backend is available, the Groq API uses a large language model to generate personalized recommendations
-   - If the backend is unavailable, the application generates mock recommendations locally based on the user input
-4. **Results Display**:
-   - The recommendations are parsed and displayed in a user-friendly format
-   - User can view their profile summary, recommended courses, learning materials, skill priorities, and a structured learning path
-5. **Interactive Elements**:
-   - Hover effects on recommendation items for better user engagement
-   - Timeline visualization for the learning path
-   - Option to start over and generate new recommendations
+```
+├── .env                  # Environment variables
+├── README.md             # Project documentation
+├── backend/              # Backend Flask application
+│   └── app.py            # Main Flask application file
+├── frontend/             # Frontend web application
+│   ├── index.html        # Main HTML file
+│   ├── script.js         # JavaScript functionality
+│   └── styles.css        # CSS styling
+├── requirements.txt      # Python dependencies
+└── screenshots/          # Application screenshots
+    ├── home.png
+    ├── input2.png
+    ├── inputs1.png
+    └── output.png
+```
 
-## Technologies Used
+## Contributing
 
-- **HTML5**: For semantic structure and content organization
-- **CSS3**: For styling with CSS variables, animations, and responsive design
-- **JavaScript**: For client-side interactivity, form validation, and API integration
-- **Express.js**: For the backend server to handle API requests
-- **Node.js**: For running the backend environment
-- **Groq API**: For AI-powered learning path recommendations using LLM technology
-- **Font Awesome**: For icons and visual elements
-- **Google Fonts**: For typography with Poppins font family
-
-## Example Data
-
-The application is ready to use with any input data. Here's an example you can try:
-
-- **Name**: John Doe
-- **Current Skills**: JavaScript, HTML, CSS
-- **Education Level**: Bachelor's Degree
-- **Target Career**: Full Stack Developer
-- **Weekly Time Commitment**: 15 hours
-- **Preferred Learning Style**: Interactive
-
-## Limitations
-
-- The recommendations generated by the AI model should be reviewed by educational experts for critical learning decisions
-- The Groq API-based recommendations require an internet connection and a running backend server
-- Mock recommendations (used when backend is unavailable) are less personalized than those from the Groq API
-- The Groq API has usage limits that may affect the availability of the service
-
-## Future Improvements
-
-- **User Authentication**: Implement user accounts to save and track learning progress
-- **Course Integration**: Connect with actual course platforms (Coursera, Udemy, etc.) for direct enrollment
-- **Feedback System**: Add rating and feedback mechanism to improve recommendations over time
-- **Advanced Skill Assessment**: Implement detailed skill tests for more accurate personalization
-- **Enhanced Offline Mode**: Improve the local recommendation algorithm with more sophisticated matching
-- **Data Visualization**: Add charts and graphs to visualize learning progress and skill development
-- **Mobile App**: Develop native mobile applications for iOS and Android
-- **Social Features**: Add community elements like study groups and peer recommendations
-- **Accessibility Improvements**: Ensure the application is fully accessible to users with disabilities
-- **Internationalization**: Add support for multiple languages
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## License
 
-This project is available for educational purposes.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgements
 
-- Groq for providing the API for AI-powered recommendations
-- Font Awesome for the icons used in the interface
+- [Groq](https://groq.com/) for providing the AI API
+- [Flask](https://flask.palletsprojects.com/) for the backend framework
+- [Font Awesome](https://fontawesome.com/) for the icons

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Learning Path Recommender</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIgMTJDMiA2LjQ3NzE1IDYuNDc3MTUgMiAxMiAyQzE3LjUyMjggMiAyMiA2LjQ3NzE1IDIyIDEyQzIyIDE3LjUyMjggMTcuNTIyOCAyMiAxMiAyMkM2LjQ3NzE1IDIyIDIgMTcuNTIyOCAyIDEyWiIgc3Ryb2tlPSIjMDBhY2ZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTIgNlYxOE02IDEySDE4IiBzdHJva2U9IiMwMGFjZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJvaWtlLWxpbmVqb2luPSJyb3VuZCIvPgo8cGF0aCBkPSJNMTUgOS43NUwxMiAxMkw5IDkuNzUiIHN0cm9rZT0iIzAwYWNmZiIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4K" alt="AI LearnPath Logo">
+                AI LearnPath
+            </div>
+            <nav class="nav-links">
+                <a href="#" id="homeBtn"><i class="fas fa-home"></i> Home</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#" id="themeToggleBtn"><i class="fas fa-moon"></i> Theme</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>Unlock Your Potential with Personalized Learning Paths</h1>
+                <p>AI-powered recommendations tailored to your goals, skills, and career aspirations.</p>
+                <button class="get-started-btn">Get Started <span class="arrow">&#8594;</span></button>
+            </div>
+        </section>
+
+        <section class="how-it-works-section" id="how-it-works">
+            <div class="container">
+                <h2>How It Works</h2>
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-user-graduate"></i></div>
+                        <h3>Share Your Background</h3>
+                        <p>Tell us about your educational background, current knowledge level, and previous experience.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-tools"></i></div>
+                        <h3>List Your Skills</h3>
+                        <p>Let us know what skills you already have so we can build upon your existing knowledge.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-briefcase"></i></div>
+                        <h3>Define Your Goals</h3>
+                        <p>Share your career aspirations and what you hope to achieve with your learning journey.</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon"><i class="fas fa-robot"></i></div>
+                        <h3>AI Recommendation</h3>
+                        <p>Our AI analyzes your profile and generates a personalized learning path just for you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-section" id="formSection" style="display:none;">
+            <div class="container">
+                <div id="root"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; AI LearnPath. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+</html>
